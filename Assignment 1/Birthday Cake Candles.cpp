@@ -6,16 +6,20 @@ string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 
-
-
 int birthdayCakeCandles(vector<int> candles) {
-    sort(candles.begin(),candles.end());
-    int count=1;
-    for (int i=candles.size()-2;i>=0;i--)
-    {
-        if (candles[i]==candles[candles.size()-1])
-            count+=1;
+    int max = INT_MIN;
+    int count =0;
+    for(int i=0;i<candles.size();i++){
+        if(candles[i]>max){
+            max = candles[i];
+            count =0;
+        }
+        
+        if(candles[i]==max){
+            count ++;
+        }
     }
+    
     return count;
 }
 
@@ -88,3 +92,4 @@ vector<string> split(const string &str) {
 
     return tokens;
 }
+
