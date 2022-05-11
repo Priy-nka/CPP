@@ -6,25 +6,16 @@ string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 
-/*
- * Complete the 'miniMaxSum' function below.
- *
- * The function accepts INTEGER_ARRAY arr as parameter.
- */
-
 void miniMaxSum(vector<int> arr) {
-    long max=0,min=0;
-    sort(arr.begin(),arr.end());
-    for (int i=0;i<4;i++)
-    {
-        min+=arr[i];
+    long long sum=0;
+    int Max=INT_MIN,Min=INT_MAX;
+    for(int a:arr){
+        sum+=a;
+        Max= max(a,Max); //if(a>Max) {Max=a};
+        Min = min(a,Min);
     }
-    for (int j=1;j<5;j++)
-    {
-        max+=arr[j];
-    }
-    
-    cout<<min<<" "<<max;
+    cout<<sum-Max <<" "<<sum-Min<<"\n";
+
 }
 
 int main()
@@ -44,3 +35,45 @@ int main()
     }
 
     miniMaxSum(arr);
+
+    return 0;
+}
+
+string ltrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
+
+    return s;
+}
+
+string rtrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end()
+    );
+
+    return s;
+}
+
+vector<string> split(const string &str) {
+    vector<string> tokens;
+
+    string::size_type start = 0;
+    string::size_type end = 0;
+
+    while ((end = str.find(" ", start)) != string::npos) {
+        tokens.push_back(str.substr(start, end - start));
+
+        start = end + 1;
+    }
+
+    tokens.push_back(str.substr(start));
+
+    return tokens;
+}
