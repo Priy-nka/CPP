@@ -10,10 +10,6 @@ public:
             swap(s[i],s[j]);
             j--;
         }
-        for(int k=0;k<s.size();k++)
-        {
-            cout<<s[k]<<" ";
-        }
         
     }
 };
