@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int matrix_product(vector<vector<int>>a,vector<vector<int>>b)
+void matrix_product(vector<vector<int>>a,vector<vector<int>>b)
 {
     vector<vector<int>>m;
     for (int i=0;i<a.size();i++)
@@ -25,7 +25,6 @@ int matrix_product(vector<vector<int>>a,vector<vector<int>>b)
         }
         cout<<"\n";
     }
-    return 0;
 }
 
 
@@ -62,7 +61,7 @@ int main() {
             }
             m2.push_back(a2);
         }
-        return matrix_product(m1,m2);
+        matrix_product(m1,m2);
     }
     return 0;
 }
