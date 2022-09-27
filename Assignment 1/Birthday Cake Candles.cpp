@@ -1,3 +1,5 @@
+//https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -7,21 +9,17 @@ string rtrim(const string &);
 vector<string> split(const string &);
 
 int birthdayCakeCandles(vector<int> candles) {
-    int max = INT_MIN;
-    int count =0;
-    for(int i=0;i<candles.size();i++){
-        if(candles[i]>max){
-            max = candles[i];
-            count =0;
-        }
-        
-        if(candles[i]==max){
-            count ++;
-        }
+    int max=0,count=1,len=candles.size();
+    for (int i=0;i<len;i++)
+    {
+        if (candles[i]==max)
+            count++;
+        else if (candles[i]>max)
+            max=candles[i];
     }
-    
     return count;
 }
+
 
 int main()
 {
